@@ -3,24 +3,31 @@ import './PostForm.css';
 
 const PostForm = ({ onSubmit, onUpdate, editingPost }) => {
     const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
+    const [body, setBody] = useState('');
 
     useEffect(() => {
         if (editingPost) {
             setTitle(editingPost.title);
-            setDescription(editingPost.description);
+            setBody(editingPost.body);
         }
     }, [editingPost]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const postData = { title, body };
+
         if (editingPost) {
-            onUpdate({ ...editingPost, title, description });
+            const updatedPost = { ...editingPost, title, body };
+            console.log('Updating post:', updatedPost);
+            onUpdate(updatedPost);
         } else {
-            onSubmit({ title, description });
+            console.log('Adding new post:', postData);
+            onSubmit(postData);
         }
+
         setTitle('');
-        setDescription('');
+        setBody('');
     };
 
     return (
@@ -34,9 +41,9 @@ const PostForm = ({ onSubmit, onUpdate, editingPost }) => {
                 className="post-input"
             />
             <textarea
-                placeholder="Description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Body"
+                value={body}
+                onChange={(e) => setBody(e.target.value)}
                 required
                 className="post-textarea"
             ></textarea>
