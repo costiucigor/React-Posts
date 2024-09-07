@@ -1,0 +1,68 @@
+.post-item {
+    width: 100%;
+    padding: 20px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-left: -20px;
+
+}
+
+.post-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.post-title {
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+}
+
+.post-description {
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+}
+
+.post-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.post-button {
+    padding: 10px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    font-family: inherit;
+}
+
+.edit-button {
+    background: #007aff;
+    color: #fff;
+}
+
+.edit-button:hover {
+    background: #005bb5;
+}
+
+.delete-button {
+    background: #ff3b30;
+    color: #fff;
+}
+
+.delete-button:hover {
+    background: #c1271b;
+}
+
+.post-button:active {
+    transform: scale(0.98);
+}
